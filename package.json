@@ -1,5 +1,6 @@
 {
   "name": "frontend",
+  "proxy": "https://aes-backend.vercel.app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -12,6 +13,7 @@
   "dependencies": {
     "@redux-devtools/extension": "^3.3.0",
     "axios": "^1.7.2",
+    "dotenv": "^16.4.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.1.2",
