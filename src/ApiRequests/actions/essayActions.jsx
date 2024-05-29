@@ -10,7 +10,7 @@ export const createEssayScore = (essayData) => async (dispatch) => {
     dispatch({ type: ESSAY_SCORING_REQUEST });
 
     // const baseURL = import.meta.env.VITE_API_BASE_URL;
-    const postURL = `$/api/check-grammar/`;
+    const postURL = `/api/check-grammar/`;
 
     console.log("API Post URL:", postURL); // Debug log for the URL
 
