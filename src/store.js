@@ -1,10 +1,20 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import { thunk } from "redux-thunk";
 import { composeWithDevTools } from "@redux-devtools/extension";
-import { essayScoringReducer } from "./ApiRequests/reducers/essayReducers";
+import {
+	essayByTopicReducer,
+	essayDetailsReducer,
+	essayListByBandReducer,
+	essayScoringReducer,
+	essaySearchReducer,
+} from "./ApiRequests/reducers/essayReducers";
 
 const reducer = combineReducers({
 	essayScoreCreate: essayScoringReducer,
+	essayTopicGet: essayByTopicReducer,
+	essayDetailGet: essayDetailsReducer,
+	essaySearchGet: essaySearchReducer,
+	essayBandGet: essayListByBandReducer,
 });
 
 // const userInfoFromStorage = localStorage.getItem("userInfo")
