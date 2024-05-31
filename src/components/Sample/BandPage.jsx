@@ -1,6 +1,6 @@
 import { Container } from 'react-bootstrap'
 
-function LatestTopicPage() {
+function BandPage() {
   return (
     <Container>
         <div className="jsx-2609154510 inner">
@@ -17,11 +17,11 @@ function LatestTopicPage() {
                     Writing Samples
                     </a> / 
                 </div>
-            <div className="jsx-1447009358">Latest IELTS Writing Topics</div>
+            <div className="jsx-1447009358">IELTS Writing Samples Band 6</div>
         </div>
         </div>
             <div className="jsx-2609154510 title">
-            <h1 className="jsx-1760859754 h2">Latest IELTS Writing Topics</h1>
+            <h1 className="jsx-1760859754 h2">IELTS Writing Samples Band 6</h1>
             </div>
 
             <div className="jsx-2609154510 description">
@@ -29,60 +29,7 @@ function LatestTopicPage() {
                 <p>The IELTS essays below will give you a better idea of how to turn your essay into a well-structured, complete-length essay.</p>
             </span>
             </div>
-            <div className="jsx-2609154510 navigation">
-            <div className="jsx-3082095328 root">
-            <a title="IELTS Writing Topics" className="jsx-721911361 link link_theme_blue   link_decoration_none  " href="/ielts-writing-task-2-topics">
-                <button className="jsx-1109448655 button button_size_mini button_theme_green2  with-radius" style={{"backgroundColor": "#E1AFD1"}}>
-                    <div className="jsx-1109448655 button__text"><span className="jsx-1109448655">Latest Topics »</span></div>
-                </button>
-            </a>
-            <a title="IELTS Writing Samples Band 6" className="jsx-721911361 link link_theme_blue   link_decoration_none  " href="/band/6/0">
-                <button className="jsx-1109448655 button button_size_mini button_theme_green2  with-radius" style={{"backgroundColor": "#E1AFD1"}}>
-                    <div className="jsx-1109448655 button__text"><span className="jsx-1109448655">Band 6 »</span></div>
-                </button>
-            </a>
-            <a title="IELTS Writing Samples Band 6.5" className="jsx-721911361 link link_theme_blue   link_decoration_none  " href="/band/6.5/0">
-                <button className="jsx-1109448655 button button_size_mini button_theme_green2  with-radius" style={{"backgroundColor": "#E1AFD1"}}>
-                    <div className="jsx-1109448655 button__text"><span className="jsx-1109448655">Band 6.5 »</span></div>
-                </button>
-            </a>
-            <a title="IELTS Writing Samples Band 7" className="jsx-721911361 link link_theme_blue   link_decoration_none  " href="/band/7/0">
-                <button className="jsx-1109448655 button button_size_mini button_theme_green2  with-radius" style={{"backgroundColor": "#E1AFD1"}}>
-                    <div className="jsx-1109448655 button__text"><span className="jsx-1109448655">Band 7 »</span></div>
-                </button>
-            </a>
-            <a title="IELTS Writing Samples Band 7.5" className="jsx-721911361 link link_theme_blue   link_decoration_none  " href="/band/7.5/0">
-                <button className="jsx-1109448655 button button_size_mini button_theme_green2  with-radius" style={{"backgroundColor": "#E1AFD1"}}>
-                    <div className="jsx-1109448655 button__text"><span className="jsx-1109448655">Band 7.5 »</span></div>
-                </button>
-            </a>
-            <a title="IELTS Writing Samples Band 8" className="jsx-721911361 link link_theme_blue   link_decoration_none  " href="/band/8/0">
-                <button className="jsx-1109448655 button button_size_mini button_theme_green2  with-radius" style={{"backgroundColor": "#E1AFD1"}}>
-                    <div className="jsx-1109448655 button__text"><span className="jsx-1109448655">Band 8 »</span></div>
-                </button>
-            </a>
-            <a title="IELTS Writing Samples Band 8.5" className="jsx-721911361 link link_theme_blue   link_decoration_none  " href="/band/8.5/0">
-                <button className="jsx-1109448655 button button_size_mini button_theme_green2  with-radius" style={{"backgroundColor": "#E1AFD1"}}>
-                    <div className="jsx-1109448655 button__text"><span className="jsx-1109448655">Band 8.5 »</span></div>
-                </button>
-            </a>
-            <a title="IELTS Writing Samples Band 9" className="jsx-721911361 link link_theme_blue   link_decoration_none  " href="/band/9/0">
-                <button className="jsx-1109448655 button button_size_mini button_theme_green2  with-radius" style={{"backgroundColor": "#E1AFD1"}}>
-                    <div className="jsx-1109448655 button__text"><span className="jsx-1109448655">Band 9 »</span></div>
-                </button>
-            </a>
-            <a title="General Task 1 Samples" className="jsx-721911361 link link_theme_blue   link_decoration_none  " href="/ielts-writing-samples-task-1">
-                <button className="jsx-1109448655 button button_size_mini button_theme_yellow  with-radius">
-                    <div className="jsx-1109448655 button__text"><span className="jsx-1109448655">General Task 1 Samples »</span></div>
-                </button>
-            </a>
-            <a title="Academic Task 1 Samples" className="jsx-721911361 link link_theme_blue   link_decoration_none  " href="/ielts-academic-writing-samples-task-1">
-                <button className="jsx-1109448655 button button_size_mini button_theme_yellow  with-radius">
-                    <div className="jsx-1109448655 button__text"><span className="jsx-1109448655">Academic Task 1 Samples »</span></div>
-                </button>
-            </a>
-            </div>
-            </div>
+
                 <div className="jsx-2609154510 list">
             <div className="jsx-2609154510">
             <div className="jsx-2609154510 item">
@@ -104,7 +51,7 @@ function LatestTopicPage() {
                 </div>
             </div>
             </div>
-        </div>
+                </div>
         </div>
         <div className="jsx-2609154510 right">
         <div className="jsx-2609154510 sticky">
@@ -168,4 +115,4 @@ function LatestTopicPage() {
   )
 }
 
-export default LatestTopicPage
+export default BandPage

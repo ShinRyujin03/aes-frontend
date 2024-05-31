@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import { Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
@@ -17,7 +17,7 @@ const ButtonToTop = () => {
         position: 'fixed',
         bottom: '10px',
         right: '10px',
-        background: '#418134',
+        background: 'black',
         border: 'none',
         borderRadius: '3rem',
         outline: 'none',

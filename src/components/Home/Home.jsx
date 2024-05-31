@@ -12,7 +12,7 @@ const Home = () => {
           <nav>
             <a href="/check-essay">Doing Test</a>
             <a href="/topic">Topic</a>
-            <a href="/sample">Samples</a>
+            <a href="/ielts-writing-samples">Samples</a>
           </nav>
         </div>
         <div className="icons">
