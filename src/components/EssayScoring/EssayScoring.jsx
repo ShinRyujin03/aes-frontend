@@ -1,29 +1,55 @@
-// import React from 'react';
-import { useRef } from 'react';
-import './style.css'; // Import your CSS file here
-import { createEssayScore } from "../../ApiRequests/actions/essayActions";
-import { useDispatch } from "react-redux";
+import React, { useRef, useState } from 'react';
+import './style.css';
+import { createEssayGrammar, createEssayScore } from "../../ApiRequests/actions/essayActions";
+import { useDispatch, useSelector } from "react-redux";
+import Modal from './Modal'; // Import the Modal component
 
-
-
-const EssayScoring= () => {
+const EssayScoring = () => {
     const essayTextareaRef = useRef(null);
-    // const dispatch = useDispatch();
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
+    const [modalOpen, setModalOpen] = useState(false);
+    const [responseData, setResponseData] = useState(null);
+    // const [responseScore, setResponseScore] = useState(null);
+    const { listing } = useSelector((state) => state.essayGrammarCreate); // Get the listing from the store
+    // const { score } = useSelector((state) => state.essayScoreCreate); // Get the listing from the store
 
-    const handleCheckGrammar = () => {
+    const handleCheckGrammar = async () => {
         const essayText = essayTextareaRef.current?.value;
         if (essayText) {
-            dispatch(createEssayScore({text: essayText, topic: 'topic'}));
-            console.log("Grammar checked for essay:", essayText);
+            try {
+                await dispatch(createEssayGrammar({ text: essayText, topic: 'topic' }));
+                setResponseData(listing); // Set the response data in the state
+                setModalOpen(true); // Open the modal
+                console.log("Grammar checked for essay:", essayText);
+            } catch (error) {
+                console.error("Error checking grammar:", error);
+            }
         } else {
             console.log("Essay textarea is not available");
         }
     };
-
+    // const handleCheckScore = async () => {
+    //     const essayText = essayTextareaRef.current?.value;
+    //     if (essayText) {
+    //         try {
+    //             await dispatch(createEssayScore({ text: essayText, topic: 'topic' }));
+    //             console.log(score)
+    //             setResponseScore(score); // Set the response data in the state
+    //             setModalOpen(true); // Open the modal
+    //             console.log("Score checked for essay:", essayText);
+    //         } catch (error) {
+    //             console.error("Error checking score:", error);
+    //         }
+    //     } else {
+    //         console.log("Essay textarea is not available");
+    //     }
+    // };
+    // const handleCheckEssay = () => {
+    // handleCheckGrammar();
+    // handleCheckScore();
+    // };
     return (
         <div>
-
             <main>
                 <div className="container">
                     <div className="left-column">
@@ -67,7 +93,7 @@ const EssayScoring= () => {
                     </div>
                 </div>
             </main>
-
+            <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)} data={responseData} />
         </div>
     );
 }

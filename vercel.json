@@ -1,0 +1,6 @@
+{
+    "rewrites": [
+        { "source": "/api/:path(.*)", "destination": "https://aes-backend.vercel.app/:path" },
+        {"source": "/(.*)", "destination": "/"}
+        ]
+}

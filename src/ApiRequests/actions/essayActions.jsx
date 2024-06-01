@@ -18,16 +18,18 @@ import {
     ESSAY_SAMPLE_REQUEST,
     ESSAY_SAMPLE_SUCCESS,
     ESSAY_SAMPLE_FAIL,
+    ESSAY_GRAMMAR_REQUEST,
+    ESSAY_GRAMMAR_SUCCESS,
+    ESSAY_GRAMMAR_FAIL,
 // ... các hằng số khác cho các action liên quan đến danh sách bài luận
 
 } from '../constants/essayConstants';
-
 export const createEssayScore = (essayData) => async (dispatch) => {
   try {
     dispatch({ type: ESSAY_SCORING_REQUEST });
 
     // const baseURL = import.meta.env.VITE_API_BASE_URL;
-    const postURL = `/api/check-grammar/`;
+    const postURL = `/api/check-essay/`;
 
     console.log("API Post URL:", postURL); // Debug log for the URL
 
@@ -42,6 +44,33 @@ export const createEssayScore = (essayData) => async (dispatch) => {
     console.error("API Error:", error); // Debug log for the error
     dispatch({
       type: ESSAY_SCORING_FAIL,
+      payload: 
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+export const createEssayGrammar = (essayData) => async (dispatch) => {
+  try {
+    dispatch({ type: ESSAY_GRAMMAR_REQUEST });
+
+    // const baseURL = import.meta.env.VITE_API_BASE_URL;
+    const postURL = `/api/check-grammar/`;
+
+    console.log("API Post URL:", postURL); // Debug log for the URL
+
+    const { data } = await axios.post(postURL, essayData);
+    console.log("Response Data:", data); // Log the response data
+
+    dispatch({
+      type: ESSAY_GRAMMAR_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    console.error("API Error:", error); // Debug log for the error
+    dispatch({
+      type: ESSAY_GRAMMAR_FAIL,
       payload: 
         error.response && error.response.data.message
           ? error.response.data.message
@@ -113,8 +142,8 @@ export const listEssaysByBand = (band, page = 1) => async (dispatch) => {
     try {
         dispatch({ type: ESSAY_LIST_REQUEST });
 
-        const { data } = await axios.get(`/api/essays_with_bandscore/${band}/${page}`);
-
+        const {data} = await axios.get(`/api/essays_with_bandscore/${band}/${page}`);
+        console.log(data)
         dispatch({
             type: ESSAY_LIST_SUCCESS,
             payload: data,

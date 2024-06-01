@@ -17,6 +17,9 @@ import {
     ESSAY_SAMPLE_REQUEST,
     ESSAY_SAMPLE_SUCCESS,
     ESSAY_SAMPLE_FAIL,
+    ESSAY_GRAMMAR_REQUEST,
+    ESSAY_GRAMMAR_SUCCESS,
+    ESSAY_GRAMMAR_FAIL,
 } from "../constants/essayConstants";
 
 // const initialState = {
@@ -25,13 +28,28 @@ import {
 // 	essayScore: null,
 // };
 
+
 export const essayScoringReducer = (state = {}, action) => {
 	switch (action.type) {
 		case ESSAY_SCORING_REQUEST:
 			return { loading: true };
 		case ESSAY_SCORING_SUCCESS:
-			return { loading: false, success: true, listing: action.payload };
+			return { loading: false, success: true, score: action.payload };
 		case ESSAY_SCORING_FAIL:
+			return { loading: false, error: action.payload };
+		// case LISTING_CREATE_RESET:
+		// 	return {};
+		default:
+			return state;
+	}
+};
+export const essayGrammarReducer = (state = {}, action) => {
+	switch (action.type) {
+		case ESSAY_GRAMMAR_REQUEST:
+			return { loading: true };
+		case ESSAY_GRAMMAR_SUCCESS:
+			return { loading: false, success: true, listing: action.payload };
+		case ESSAY_GRAMMAR_FAIL:
 			return { loading: false, error: action.payload };
 		// case LISTING_CREATE_RESET:
 		// 	return {};

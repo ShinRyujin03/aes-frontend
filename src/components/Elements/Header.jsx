@@ -13,8 +13,9 @@ function Header() {
       <div className="header-content">
          <img src="logo.svg" alt="Logo" className="logo" />
         <nav>
+          <a href="/">Home</a>
           <a href="/check-essay">Doing Test</a>
-          <a href="#">Topic</a>
+          <a href="/topic">Topic</a>
           <a href="/ielts-writing-samples">Samples</a>
         </nav>
         <div className="icons">

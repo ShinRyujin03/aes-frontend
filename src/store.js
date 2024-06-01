@@ -8,10 +8,12 @@ import {
 	essayScoringReducer,
 	essaySearchReducer,
 	essaySampleReducer,
+	essayGrammarReducer,
 } from "./ApiRequests/reducers/essayReducers";
 
 const reducer = combineReducers({
 	essayScoreCreate: essayScoringReducer,
+	essayGrammarCreate: essayGrammarReducer,
 	essayTopicGet: essayByTopicReducer,
 	essayDetailGet: essayDetailsReducer,
 	essaySearchGet: essaySearchReducer,
