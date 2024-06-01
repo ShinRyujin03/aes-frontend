@@ -46,37 +46,37 @@ function SamplePage() {
                 <div className="jsx-1109448655 button__text"><span className="jsx-1109448655">Latest Topics »</span></div>
               </button>
           </a>
-          <a title="IELTS Writing Samples Band 6" className="jsx-721911361 link link_theme_blue   link_decoration_none  " href="/band/6/0">
+          <a title="IELTS Writing Samples Band 6" className="jsx-721911361 link link_theme_blue   link_decoration_none  " href="/band/6/1">
               <button className="jsx-1109448655 button button_size_mini button_theme_green2  with-radius" style={{"backgroundColor": "#E1AFD1"}}>
                 <div className="jsx-1109448655 button__text"><span className="jsx-1109448655">Band 6 »</span></div>
               </button>
           </a>
-          <a title="IELTS Writing Samples Band 6.5" className="jsx-721911361 link link_theme_blue   link_decoration_none  " href="/band/6.5/0">
+          <a title="IELTS Writing Samples Band 6.5" className="jsx-721911361 link link_theme_blue   link_decoration_none  " href="/band/6.5/1">
               <button className="jsx-1109448655 button button_size_mini button_theme_green2  with-radius" style={{"backgroundColor": "#E1AFD1"}}>
                 <div className="jsx-1109448655 button__text"><span className="jsx-1109448655">Band 6.5 »</span></div>
               </button>
           </a>
-          <a title="IELTS Writing Samples Band 7" className="jsx-721911361 link link_theme_blue   link_decoration_none  " href="/band/7/0">
+          <a title="IELTS Writing Samples Band 7" className="jsx-721911361 link link_theme_blue   link_decoration_none  " href="/band/7/1">
               <button className="jsx-1109448655 button button_size_mini button_theme_green2  with-radius" style={{"backgroundColor": "#E1AFD1"}}>
                 <div className="jsx-1109448655 button__text"><span className="jsx-1109448655">Band 7 »</span></div>
               </button>
           </a>
-          <a title="IELTS Writing Samples Band 7.5" className="jsx-721911361 link link_theme_blue   link_decoration_none  " href="/band/7.5/0">
+          <a title="IELTS Writing Samples Band 7.5" className="jsx-721911361 link link_theme_blue   link_decoration_none  " href="/band/7.5/1">
               <button className="jsx-1109448655 button button_size_mini button_theme_green2  with-radius" style={{"backgroundColor": "#E1AFD1"}}>
                 <div className="jsx-1109448655 button__text"><span className="jsx-1109448655">Band 7.5 »</span></div>
               </button>
           </a>
-          <a title="IELTS Writing Samples Band 8" className="jsx-721911361 link link_theme_blue   link_decoration_none  " href="/band/8/0">
+          <a title="IELTS Writing Samples Band 8" className="jsx-721911361 link link_theme_blue   link_decoration_none  " href="/band/8/1">
               <button className="jsx-1109448655 button button_size_mini button_theme_green2  with-radius" style={{"backgroundColor": "#E1AFD1"}}>
                 <div className="jsx-1109448655 button__text"><span className="jsx-1109448655">Band 8 »</span></div>
               </button>
           </a>
-          <a title="IELTS Writing Samples Band 8.5" className="jsx-721911361 link link_theme_blue   link_decoration_none  " href="/band/8.5/0">
+          <a title="IELTS Writing Samples Band 8.5" className="jsx-721911361 link link_theme_blue   link_decoration_none  " href="/band/8.5/1">
               <button className="jsx-1109448655 button button_size_mini button_theme_green2  with-radius" >
                 <div className="jsx-1109448655 button__text"><span className="jsx-1109448655">Band 8.5 »</span></div>
               </button>
           </a>
-          <a title="IELTS Writing Samples Band 9" className="jsx-721911361 link link_theme_blue   link_decoration_none  " href="/band/9/0">
+          <a title="IELTS Writing Samples Band 9" className="jsx-721911361 link link_theme_blue   link_decoration_none  " href="/band/9/1">
               <button className="jsx-1109448655 button button_size_mini button_theme_green2  with-radius" style={{"backgroundColor": "#E1AFD1"}}>
                 <div className="jsx-1109448655 button__text"><span className="jsx-1109448655">Band 9 »</span></div>
               </button>
