@@ -15,6 +15,9 @@ import {
     ESSAY_LIST_REQUEST, 
     ESSAY_LIST_SUCCESS,
     ESSAY_LIST_FAIL,
+    ESSAY_SAMPLE_REQUEST,
+    ESSAY_SAMPLE_SUCCESS,
+    ESSAY_SAMPLE_FAIL,
 // ... các hằng số khác cho các action liên quan đến danh sách bài luận
 
 } from '../constants/essayConstants';
@@ -119,6 +122,26 @@ export const listEssaysByBand = (band, page = 1) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: ESSAY_LIST_FAIL,
+            payload: error.response && error.response.data.message
+                ? error.response.data.message
+                : error.message,
+        });
+    }
+};
+
+export const listEssaysSample = () => async (dispatch) => {
+    try {
+        dispatch({ type: ESSAY_SAMPLE_REQUEST });
+
+        const { data } = await axios.get(`/api/sample-essays`);
+        console.log('Fetched essays:', data);   
+        dispatch({
+            type: ESSAY_SAMPLE_SUCCESS,
+            payload: data,
+        });
+    } catch (error) {
+        dispatch({
+            type: ESSAY_SAMPLE_FAIL,
             payload: error.response && error.response.data.message
                 ? error.response.data.message
                 : error.message,

@@ -4,27 +4,6 @@ import './style.css'; // Import your CSS file here
 const Home = () => {
   return (
     <div>
-      <header>
-        <div>
-          <img src="logo.svg" alt="Logo" className="logo" />
-        </div>
-        <div className="nav-container">
-          <nav>
-            <a href="/check-essay">Doing Test</a>
-            <a href="/topic">Topic</a>
-            <a href="/ielts-writing-samples">Samples</a>
-          </nav>
-        </div>
-        <div className="icons">
-          <button className="icon-button">&#36;</button>
-          <button className="icon-button">&#128100;</button>
-          <div className="search-container">
-            <input type="text" id="search-bar" placeholder="Search..." />
-            <button className="search-button">&#128269;</button>
-          </div>
-        </div>
-      </header>
-
       <main>
         <section className="hero">
           <div className="hero-content">
@@ -103,46 +82,7 @@ const Home = () => {
         <script src="script.js"></script>
       </main>
 
-      <footer>
-        <div className="footer-container">
-          <div className="footer-column">
-            <img src="logo.svg" alt="Logo" className="footer-logo" />
-            <p>Automated IELTS Scoring</p>
-            <p>&copy; 2024 Writing9. All rights reserved</p>
-          </div>
-          <div className="footer-column">
-            <h3>Support</h3>
-            <ul>
-              <li>
-                <a href="#">Contact Us</a>
-              </li>
-              <li>
-                <a href="#">FAQ</a>
-              </li>
-              <li>
-                <a href="#">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="#">Terms & Conditions</a>
-              </li>
-            </ul>
-          </div>
-          <div className="footer-column">
-            <h3>Follow Us</h3>
-            <ul>
-              <li>
-                <a href="#">Facebook</a>
-              </li>
-              <li>
-                <a href="#">Twitter</a>
-              </li>
-              <li>
-                <a href="#">Instagram</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </footer>
+
     </div>
   );
 };

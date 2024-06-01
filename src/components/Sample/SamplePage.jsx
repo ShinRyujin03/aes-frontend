@@ -1,7 +1,22 @@
+import { useDispatch, useSelector } from 'react-redux';
 import './style.css'; // Import your CSS file here
 import { Container} from 'react-bootstrap';
+import { listEssaysSample } from '../../ApiRequests/actions/essayActions';
+import { useEffect } from 'react';
 
 function SamplePage() {
+  const dispatch = useDispatch();
+
+  // Fetch essays on component mount
+  useEffect(() => {
+    dispatch(listEssaysSample());
+  }, [dispatch]);
+
+  // Get the state from the Redux store
+  const essayList = useSelector((state) => state.essaySampleGet);
+  const { loading, error, essays } = essayList;
+
+ 
   return (
     <Container>
     <div className="jsx-2609154510 inner">
@@ -78,28 +93,44 @@ function SamplePage() {
           </a>
         </div>
         </div>
-              <div className="jsx-2609154510 list">
-        <div className="jsx-2609154510">
-          <div className="jsx-2609154510 item">
-              <div className="jsx-2134295183 root">
-                <div className="jsx-2134295183 question-wrap">
-                    <div className="jsx-2134295183 band">
+        <div className="jsx-2609154510 list">
+          {loading ? (
+            <div>Loading...</div>
+          ) : error ? (
+            <div>Error: {error.message}</div>
+          ) : essays && essays.pageProps && essays.pageProps.data && essays.pageProps.data.length > 0 ? (
+            essays.pageProps.data.map((item) => (
+              <>
+              <div key={item._id} className="jsx-2609154510 item">
+                <div className="jsx-2134295183 root">
+                  <div className="jsx-2134295183 question-wrap">
+                    <div className="sx-2134295183 band">
                       <div className="jsx-3243968521 root">
-                          <div className="jsx-3243968521 band">5</div>
-                          <div className="jsx-3243968521 descr">band</div>
+                        <div className="jsx-3243968521 band">{item.band}</div>
+                        <div className="jsx-3243968521 descr">band</div>
                       </div>
                     </div>
                     <div className="jsx-2134295183">
-                      <a className="jsx-721911361 link link_theme_blue root__link  link_decoration_none  " href="/text/66597dd90442ea001278e8b8-some-people-think-that-the-modern-communication-technology-is-having-a-negative-effect-on-social-rel">
-                          <h3 className="jsx-3594441866 h4 question">Some people think that the modern communication technology is having a negative effect on social relaionships. To what extent do you agree or disagree?</h3>
+                      <a
+                        className="jsx-721911361 link link_theme_blue root__link link_decoration_none"
+                        href={`/text/${item.slug}`}
+                      >
+                        <h3 className="h4 question">{item.question}</h3>
                       </a>
                     </div>
+                  </div>
+                  <div className="jsx-2134295183 text">
+                    <span className="jsx-242105113 t18">{item.shortText}</span>
+                  </div>
                 </div>
-                <div className="jsx-2134295183 text"><span className="jsx-242105113 t18 ">A controversial discussion point is whether social associations are adversely influenced by digital communication methods. This writer disagrees with this statement due to immediate conversation and expansion of relationships.</span></div>
               </div>
-          </div>
+            </>
+            ))
+          ) : (
+            <div>No essays found.</div>
+          )}
         </div>
-      </div>
+  
     </div>
     <div className="jsx-2609154510 right">
       <div className="jsx-2609154510 sticky">

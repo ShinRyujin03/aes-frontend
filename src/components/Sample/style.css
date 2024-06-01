@@ -82,7 +82,7 @@ body {
 .item.jsx-2609154510 {
     margin-bottom: 20px;
     padding-bottom: 20px;
-    border-bottom: 1px solid rgb(238, 238, 238);
+    border-bottom: 1px solid rgb(240, 240, 240);
 }
 .band.jsx-2134295183 {
     float: left;
@@ -116,7 +116,7 @@ body {
     margin-top: 2px;
 }
 .link_theme_blue.jsx-721911361 {
-    color: rgb(30, 31, 41);
+    color: rgb(18, 18, 19);
 }
 
 .link_decoration_none.jsx-721911361 {
@@ -127,7 +127,7 @@ body {
 }
 .text.jsx-2134295183 {
     margin-top: 10px;
-    color: rgb(105, 105, 105);
+    color: rgb(34, 30, 30);
     white-space: pre-line;
     word-break: break-word;
 }
@@ -149,9 +149,7 @@ body {
 .root.jsx-3082095328>* {
     margin: 5px 5px 0 0;
 }
-.link_theme_blue.jsx-721911361 {
-    color: #5c5fbe;
-}
+
 .link_decoration_none.jsx-721911361 {
     -webkit-text-decoration: none;
     text-decoration: none;
@@ -172,9 +170,7 @@ body {
 .root.jsx-3082095328>* {
     margin: 5px 5px 0 0;
 }
-.link_theme_blue.jsx-721911361 {
-    color: #5c5fbe;
-}
+
 .link_decoration_none.jsx-721911361 {
     -webkit-text-decoration: none;
     text-decoration: none;

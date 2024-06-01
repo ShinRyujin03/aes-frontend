@@ -7,6 +7,7 @@ import {
 	essayListByBandReducer,
 	essayScoringReducer,
 	essaySearchReducer,
+	essaySampleReducer,
 } from "./ApiRequests/reducers/essayReducers";
 
 const reducer = combineReducers({
@@ -15,6 +16,7 @@ const reducer = combineReducers({
 	essayDetailGet: essayDetailsReducer,
 	essaySearchGet: essaySearchReducer,
 	essayBandGet: essayListByBandReducer,
+	essaySampleGet: essaySampleReducer,
 });
 
 // const userInfoFromStorage = localStorage.getItem("userInfo")

@@ -8,11 +8,14 @@ import ButtonToTop from "./components/ButtonToTop";
 import LatestTopicPage from "./components/LatestTopic/LatestTopicPage";
 import BandPage from "./components/Sample/BandPage";
 import DetailPage from "./components/DetailPage/DetailPage";
+import Header from "./components/Elements/Header";
+import Footer from "./components/Elements/Footer";
 
 function App() {
   return (
     <>
       <Router>
+        <Header/>
         {/* Uncomment the following line if you need the Google sign-in prompt */}
         {/* <div id="google-signin-prompt" className="google-signin-prompt" /> */}
         <Routes>
@@ -20,12 +23,13 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/ielts-writing-samples" element={<SamplePage />} />
           <Route path="/latest-topic" element={<LatestTopicPage />} />
-          <Route path="/band" element={<BandPage />} />
+          <Route path="/band/:bandId/:pageNumber" element={<BandPage />} />
           <Route path="/detail" element={<DetailPage />} />
           {/* Uncomment the following line if you have a NotFound404ErrorPage component */}
           <Route path="*" element={<NotFound404ErrorPage />} />
         </Routes>
         <ButtonToTop />
+        <Footer/>
       </Router>
     </>
   );

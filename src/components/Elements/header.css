@@ -1,0 +1,54 @@
+/* Header.css */
+header {
+    background-color: #B3B9E5;
+    color: white;
+    padding: 1px 20px;
+    display: flex;
+    justify-content: space-between; /* Căn các phần tử sang trái */
+    align-items: center;
+    border: 5px solid #5E61C0;
+    position: fixed; 
+    width: 100%;
+    z-index: 100; 
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    width: 100%; /* Chiếm toàn bộ chiều rộng của header */
+}
+
+.logo {
+    width: auto;
+    height: 50px;
+}
+
+nav {
+    display: flex;
+    margin-left: 140px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background-color: #5E61C0;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    background-color: #0047AB; 
+}
+
+.icon-button {
+    justify-content: space-between;
+    align-items: center;
+    width: 50px; /* Điều chỉnh độ rộng của nút */
+    height: 40px; /* Điều chỉnh chiều cao của nút */
+    margin: 0 10px;
+    padding: 10px 15px;
+}

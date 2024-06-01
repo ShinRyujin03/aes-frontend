@@ -14,6 +14,9 @@ import {
 	ESSAY_LIST_REQUEST,
 	ESSAY_LIST_SUCCESS,
 	ESSAY_LIST_FAIL,
+    ESSAY_SAMPLE_REQUEST,
+    ESSAY_SAMPLE_SUCCESS,
+    ESSAY_SAMPLE_FAIL,
 } from "../constants/essayConstants";
 
 // const initialState = {
@@ -76,13 +79,26 @@ export const essaySearchReducer = (state = { essays: [] }, action) => {
     }
 };
 
-export const essayListByBandReducer = (state = { essays: [] }, action) => {
+export const essayListByBandReducer = (state = { essays: []}, action) => {
     switch (action.type) {
         case ESSAY_LIST_REQUEST:
-            return { loading: true, essays: [] };
+            return { loading: true, essays: []};
         case ESSAY_LIST_SUCCESS:
             return { loading: false, essays: action.payload };
         case ESSAY_LIST_FAIL 	:
+            return { loading: false, error: action.payload };
+        default:
+            return state;
+    }
+};
+
+export const essaySampleReducer = (state = { essays: [] }, action) => {
+    switch (action.type) {
+        case ESSAY_SAMPLE_REQUEST:
+            return { loading: true, essays: [] };
+        case ESSAY_SAMPLE_SUCCESS:
+            return { loading: false, essays: action.payload };
+        case ESSAY_SAMPLE_FAIL 	:
             return { loading: false, error: action.payload };
         default:
             return state;
