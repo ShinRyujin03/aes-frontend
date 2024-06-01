@@ -1,22 +1,29 @@
-// Modal.js
 import './modal.css'; // Create a CSS file for modal styling
 
-const Modal = ({ isOpen, onClose, data }) => {
+const Modal = ({ isOpen, onClose, data, score }) => {
   if (!isOpen) {
     return null;
   }
+
+  console.log('Score object:', score);
+
+  // Round the score if it exists
+  const roundedScore = score && score.sentiment_obj && typeof score.sentiment_obj.score === 'number'
+    ? Math.round(score.sentiment_obj.score * 2) / 2
+    : null;
 
   return (
     <div className="modal-overlay">
       <div className="modal">
         <button className="close-button" onClick={onClose}>X</button>
-        {/* {data && score.sentiment_obj.score && score.sentiment_obj.score.length > 0 ? (
-        <h2>Your Score Results: {score.sentiment_obj.score}</h2>): (
-            <p>No Score found.</p>
-          )} */}
+        {roundedScore !== null ? (
+          <h2>Your Score Results: {roundedScore}</h2>
+        ) : (
+          <p>No Score found.</p>
+        )}
         <h2>Grammar Check Results</h2>
         <div className="modal-content">
-          {data && data.spellcheck.corrections && data.spellcheck.corrections.length > 0 ? (
+          {data && data.spellcheck && data.spellcheck.corrections && data.spellcheck.corrections.length > 0 ? (
             data.spellcheck.corrections.map(correction => (
               <div key={correction.id} className="correction">
                 <h3>{correction.shortDescription}</h3>

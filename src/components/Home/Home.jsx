@@ -1,7 +1,9 @@
 // import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './style.css'; // Import your CSS file here
 
 const Home = () => {
+  const navigate = useNavigate()
   return (
     <div>
       <main>
@@ -9,7 +11,9 @@ const Home = () => {
           <div className="hero-content">
             <h2>Check IELTS Essay with AI</h2>
             <p>Improve your IELTS writing score with the newest technology</p>
-            <button className="check-essay-button">Check My Essay</button>
+          <button className="check-essay-button" onClick={() => navigate("/check-essay")}>
+              Check My Essay
+          </button>          
           </div>
           <div className="hero-img">
             <video autoPlay muted loop>

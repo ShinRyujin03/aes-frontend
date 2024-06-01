@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import './style.css';
 import { createEssayGrammar, createEssayScore } from "../../ApiRequests/actions/essayActions";
 import { useDispatch, useSelector } from "react-redux";
@@ -8,46 +8,34 @@ const EssayScoring = () => {
     const essayTextareaRef = useRef(null);
     const dispatch = useDispatch();
     const [modalOpen, setModalOpen] = useState(false);
-    const [responseData, setResponseData] = useState(null);
-    // const [responseScore, setResponseScore] = useState(null);
-    const { listing } = useSelector((state) => state.essayGrammarCreate); // Get the listing from the store
-    // const { score } = useSelector((state) => state.essayScoreCreate); // Get the listing from the store
+
+    const { listing, loading: loadingGrammar, error: errorGrammar, success: successGrammar } = useSelector((state) => state.essayGrammarCreate);
+    const { scoreGeneral, loading: loadingScore, error: errorScore, success: successScore } = useSelector((state) => state.essayScoreCreate);
 
     const handleCheckGrammar = async () => {
         const essayText = essayTextareaRef.current?.value;
         if (essayText) {
             try {
-                await dispatch(createEssayGrammar({ text: essayText, topic: 'topic' }));
-                setResponseData(listing); // Set the response data in the state
-                setModalOpen(true); // Open the modal
-                console.log("Grammar checked for essay:", essayText);
+                await Promise.all([
+                    dispatch(createEssayGrammar({ text: essayText, topic: 'topic' })),
+                    dispatch(createEssayScore({ text: essayText, topic: 'topic' }))
+                ]);
+                console.log("Grammar and score checked for essay:", essayText);
             } catch (error) {
-                console.error("Error checking grammar:", error);
+                console.error("Error checking grammar or scoring essay:", error);
             }
         } else {
             console.log("Essay textarea is not available");
         }
     };
-    // const handleCheckScore = async () => {
-    //     const essayText = essayTextareaRef.current?.value;
-    //     if (essayText) {
-    //         try {
-    //             await dispatch(createEssayScore({ text: essayText, topic: 'topic' }));
-    //             console.log(score)
-    //             setResponseScore(score); // Set the response data in the state
-    //             setModalOpen(true); // Open the modal
-    //             console.log("Score checked for essay:", essayText);
-    //         } catch (error) {
-    //             console.error("Error checking score:", error);
-    //         }
-    //     } else {
-    //         console.log("Essay textarea is not available");
-    //     }
-    // };
-    // const handleCheckEssay = () => {
-    // handleCheckGrammar();
-    // handleCheckScore();
-    // };
+
+    useEffect(() => {
+        if (successGrammar && successScore) {
+            console.log(scoreGeneral.sentiment_obj.score); // Now scoreGeneral should be updated
+            setModalOpen(true); // Open the modal
+        }
+    }, [successGrammar, successScore, scoreGeneral]);
+
     return (
         <div>
             <main>
@@ -65,7 +53,9 @@ const EssayScoring = () => {
                         <div className="word-count">0 paragraphs 0 words</div>
                     </div>
                     <div className="right-column">
-                        <button className="check-essay-button" onClick={handleCheckGrammar}>Check essay</button>
+                        <button className="check-essay-button" onClick={handleCheckGrammar} disabled={loadingGrammar || loadingScore}>
+                            {loadingGrammar || loadingScore ? 'Checking...' : 'Check essay'}
+                        </button>
                         <button className="timer" id="timerButton">Time: 40 min</button>
                         <div className="criteria-section">
                             <h2>COHERENCE AND COHESION</h2>
@@ -93,7 +83,12 @@ const EssayScoring = () => {
                     </div>
                 </div>
             </main>
-            <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)} data={responseData} />
+            <Modal
+                isOpen={modalOpen}
+                onClose={() => setModalOpen(false)}
+                data={listing}
+                score={scoreGeneral}
+            />
         </div>
     );
 }

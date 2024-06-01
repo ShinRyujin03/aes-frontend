@@ -10,12 +10,12 @@ import BandPage from "./components/Sample/BandPage";
 import DetailPage from "./components/DetailPage/DetailPage";
 import Header from "./components/Elements/Header";
 import Footer from "./components/Elements/Footer";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <>
       <Router>
-        <Header/>
+        {/* <Header/> */}
         {/* Uncomment the following line if you need the Google sign-in prompt */}
         {/* <div id="google-signin-prompt" className="google-signin-prompt" /> */}
         <Routes>
@@ -24,7 +24,8 @@ function App() {
           <Route path="/ielts-writing-samples" element={<SamplePage />} />
           <Route path="/latest-topic" element={<LatestTopicPage />} />
           <Route path="/band/:bandId/:pageNumber" element={<BandPage />} />
-          <Route path="/detail" element={<DetailPage />} />
+          <Route path="/text/:idSlug" element={<DetailPage />} />
+
           {/* Uncomment the following line if you have a NotFound404ErrorPage component */}
           <Route path="*" element={<NotFound404ErrorPage />} />
         </Routes>

@@ -1,3 +1,4 @@
+import { createEssayGrammar, createEssayScore } from "../actions/essayActions";
 import {
 	ESSAY_BY_TOPIC_FAIL,
 	ESSAY_BY_TOPIC_REQUEST,
@@ -27,36 +28,75 @@ import {
 // 	error: null,
 // 	essayScore: null,
 // };
+import { createSlice } from '@reduxjs/toolkit';
 
 
-export const essayScoringReducer = (state = {}, action) => {
-	switch (action.type) {
-		case ESSAY_SCORING_REQUEST:
-			return { loading: true };
-		case ESSAY_SCORING_SUCCESS:
-			return { loading: false, success: true, score: action.payload };
-		case ESSAY_SCORING_FAIL:
-			return { loading: false, error: action.payload };
-		// case LISTING_CREATE_RESET:
-		// 	return {};
-		default:
-			return state;
-	}
-};
-export const essayGrammarReducer = (state = {}, action) => {
-	switch (action.type) {
-		case ESSAY_GRAMMAR_REQUEST:
-			return { loading: true };
-		case ESSAY_GRAMMAR_SUCCESS:
-			return { loading: false, success: true, listing: action.payload };
-		case ESSAY_GRAMMAR_FAIL:
-			return { loading: false, error: action.payload };
-		// case LISTING_CREATE_RESET:
-		// 	return {};
-		default:
-			return state;
-	}
-};
+const essayGrammarSlice = createSlice({
+  name: 'essayGrammar',
+  initialState: {
+    listing: null,
+    loading: false,
+    error: null,
+    success: false,
+  },
+  reducers: {
+    // Define additional reducers if needed
+    // resetState: (state) => initialState, // Example reset state action
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(createEssayGrammar.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+        state.success = false;
+      })
+      .addCase(createEssayGrammar.fulfilled, (state, action) => {
+        state.loading = false;
+        state.success = true;
+        state.listing = action.payload;
+      })
+      .addCase(createEssayGrammar.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
+  },
+});
+
+export const essayGrammarReducer = essayGrammarSlice.reducer;
+
+const essayScoreSlice = createSlice({
+  name: 'essayGrammar',
+  initialState: {
+    scoreGeneral: null,
+    loading: false,
+    error: null,
+    success: false,
+  },
+  reducers: {
+    // Define additional reducers if needed
+    // resetState: (state) => initialState, // Example reset state action
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(createEssayScore.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+        state.success = false;
+      })
+      .addCase(createEssayScore.fulfilled, (state, action) => {
+        state.loading = false;
+        state.success = true;
+        state.scoreGeneral = action.payload;
+      })
+      .addCase(createEssayScore.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
+  },
+});
+
+export const essayScoringReducer = essayScoreSlice.reducer;
+
 
 export const essayByTopicReducer = (state = { essays: [] }, action) => {
     switch (action.type) {

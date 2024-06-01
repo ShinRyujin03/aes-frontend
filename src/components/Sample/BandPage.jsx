@@ -70,7 +70,7 @@ function BandPage() {
                     <div className="jsx-2134295183">
                       <a
                         className="jsx-721911361 link link_theme_blue root__link link_decoration_none"
-                        href={`/text/${item.slug}`}
+                        href={`/text/${item._id}-${item.slug}`}
                       >
                         <h3 className="h4 question">{item.question}</h3>
                       </a>

@@ -1,4 +1,3 @@
-import axios from 'axios';
 import {
     ESSAY_BY_TOPIC_FAIL,
     ESSAY_BY_TOPIC_REQUEST,
@@ -6,9 +5,6 @@ import {
     ESSAY_DETAILS_FAIL,
     ESSAY_DETAILS_REQUEST,
     ESSAY_DETAILS_SUCCESS,
-    ESSAY_SCORING_FAIL,
-    ESSAY_SCORING_REQUEST,
-    ESSAY_SCORING_SUCCESS,
     ESSAY_SEARCH_FAIL,
     ESSAY_SEARCH_REQUEST,
     ESSAY_SEARCH_SUCCESS,
@@ -18,66 +14,60 @@ import {
     ESSAY_SAMPLE_REQUEST,
     ESSAY_SAMPLE_SUCCESS,
     ESSAY_SAMPLE_FAIL,
-    ESSAY_GRAMMAR_REQUEST,
-    ESSAY_GRAMMAR_SUCCESS,
-    ESSAY_GRAMMAR_FAIL,
+
 // ... các hằng số khác cho các action liên quan đến danh sách bài luận
 
 } from '../constants/essayConstants';
-export const createEssayScore = (essayData) => async (dispatch) => {
-  try {
-    dispatch({ type: ESSAY_SCORING_REQUEST });
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
-    // const baseURL = import.meta.env.VITE_API_BASE_URL;
-    const postURL = `/api/check-essay/`;
+export const createEssayScore = createAsyncThunk(
+  'essayScore/create',
+  async (essayData, { rejectWithValue }) => {
+    try {
+      // const baseURL = import.meta.env.VITE_API_BASE_URL;
+      const postURL = `/api/check-essay/`;
 
-    console.log("API Post URL:", postURL); // Debug log for the URL
+      console.log("API Post URL:", postURL); // Debug log for the URL
 
-    const { data } = await axios.post(postURL, essayData);
-    console.log("Response Data:", data); // Log the response data
+      const { data } = await axios.post(postURL, essayData);
+      console.log("Response Data:", data); // Log the response data
 
-    dispatch({
-      type: ESSAY_SCORING_SUCCESS,
-      payload: data,
-    });
-  } catch (error) {
-    console.error("API Error:", error); // Debug log for the error
-    dispatch({
-      type: ESSAY_SCORING_FAIL,
-      payload: 
+      return data;
+    } catch (error) {
+      console.error("API Error:", error); // Debug log for the error
+      return rejectWithValue(
         error.response && error.response.data.message
           ? error.response.data.message
-          : error.message,
-    });
+          : error.message
+      );
+    }
   }
-};
-export const createEssayGrammar = (essayData) => async (dispatch) => {
-  try {
-    dispatch({ type: ESSAY_GRAMMAR_REQUEST });
+);
+export const createEssayGrammar = createAsyncThunk(
+  'essayGrammar/create',
+  async (essayData, { rejectWithValue }) => {
+    try {
+      // const baseURL = import.meta.env.VITE_API_BASE_URL;
+      const postURL = `/api/check-grammar/`;
 
-    // const baseURL = import.meta.env.VITE_API_BASE_URL;
-    const postURL = `/api/check-grammar/`;
+      console.log("API Post URL:", postURL); // Debug log for the URL
 
-    console.log("API Post URL:", postURL); // Debug log for the URL
+      const { data } = await axios.post(postURL, essayData);
+      console.log("Response Data:", data); // Log the response data
 
-    const { data } = await axios.post(postURL, essayData);
-    console.log("Response Data:", data); // Log the response data
-
-    dispatch({
-      type: ESSAY_GRAMMAR_SUCCESS,
-      payload: data,
-    });
-  } catch (error) {
-    console.error("API Error:", error); // Debug log for the error
-    dispatch({
-      type: ESSAY_GRAMMAR_FAIL,
-      payload: 
+      return data;
+    } catch (error) {
+      console.error("API Error:", error); // Debug log for the error
+      return rejectWithValue(
         error.response && error.response.data.message
           ? error.response.data.message
-          : error.message,
-    });
+          : error.message
+      );
+    }
   }
-};
+);
+
 export const EssaysByTopic = (topic) => async (dispatch) => {
     try {
         dispatch({ type: ESSAY_BY_TOPIC_REQUEST});
@@ -98,11 +88,11 @@ export const EssaysByTopic = (topic) => async (dispatch) => {
     }
 };
 
-export const getEssayDetails = (id) => async (dispatch) => {
+export const getEssayDetails = (id, slug) => async (dispatch) => {
     try {
         dispatch({ type: ESSAY_DETAILS_REQUEST });
 
-        const { data } = await axios.get(`/api/essays_detail/${id}`);
+        const { data } = await axios.get(`/api/essays_detail/${id}?slug=${slug}`);
 
         dispatch({
             type: ESSAY_DETAILS_SUCCESS,

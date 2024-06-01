@@ -1,11 +1,5 @@
 /* style.css */
-body {
-    font-family: 'Open Sans', sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to bottom, #656DE4, #ABAFEE, #C5C7E8);
-}
+
 
 header {
     background-color: #B3B9E5; /* Màu xanh dương */
@@ -218,7 +212,7 @@ textarea {
     margin: 0 12px;
     padding: 10px 15px;
     border-radius: 5px;
-    background-color: #5E61C0 /* Màu xanh đậm */
+    background-color: #5E61C0 /* Màu xanh đậm */;
     transition: background-color 0.3s ease;
     font-weight: bold;
     text-transform: uppercase;
