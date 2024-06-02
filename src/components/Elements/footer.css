@@ -2,8 +2,10 @@ footer {
     background-color: #333; /* Màu nền footer */
     color: white;
     padding: 30px 0;
+    margin-top: 150px;
     width: 153%; /* Điều chỉnh chiều rộng footer */
     transform: translateX(-17%); /* Dịch chuyển footer sang trái 50% */
+    z-index: auto,
 }
 
 .footer-container {

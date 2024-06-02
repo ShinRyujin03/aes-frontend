@@ -1,15 +1,16 @@
 /* Header.css */
 header {
-    background-color: #B3B9E5;
+    background-color: #d1d0de;
     color: white;
     padding: 1px 20px;
     display: flex;
     justify-content: space-between; /* Căn các phần tử sang trái */
     align-items: center;
-    border: 5px solid #5E61C0;
+    border: 5px solid #1b155d;
     position: fixed; 
     width: 100%;
-    z-index: 100; 
+    z-index: 100;
+    margin-bottom: 80px;
 }
 
 .header-content {
@@ -34,7 +35,7 @@ nav a {
     margin: 0 15px;
     padding: 8px 12px;
     border-radius: 10px;
-    background-color: #5E61C0;
+    background-color: #1b155d;
     transition: background-color 0.3s ease;
     font-weight: bold;
     text-transform: uppercase;
