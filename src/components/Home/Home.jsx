@@ -24,7 +24,7 @@ const Home = () => {
 
         <section className="check-section">
           <div className="check-image">
-            <img src="img/check-essay.png" alt="Check Essay Image" />
+            <img src="./check-essay.png" alt="Check Essay Image" />
           </div>
           <div className="check-content">
             <h2>Check your IELTS essay in seconds</h2>
@@ -40,22 +40,22 @@ const Home = () => {
         <section className="why-section">
           <div className="reasons-container">
             <div className="laptop-image">
-              <img src="img/Laptop.jpg" alt="Laptop Image" />
+              <img src="./Laptop.jpg" alt="Laptop Image" />
             </div>
             <div className="reasons">
               <h2>Why should I use AuIES now?</h2>
               <div className="reason">
-                <img src="img/1.png" alt="Free to reach" />
+                <img src="./1.png" alt="Free to reach" />
                 <h3>It&quot;s free to reach</h3>
                 <p>You can use it for free, but we recommend using paid plans for the best support</p>
               </div>
               <div className="reason">
-                <img src="img/2.png" alt="Transparent grading" />
+                <img src="./2.png" alt="Transparent grading" />
                 <h3>It has transparent grading</h3>
                 <p>Our system uses new AI technologies to score IELTS in the most transparent and clear way</p>
               </div>
               <div className="reason">
-                <img src="img/3.png" alt="Improve your IELTS writing grammar" />
+                <img src="./3.png" alt="Improve your IELTS writing grammar" />
                 <h3>It can improve your IELTS writing grammar</h3>
                 <p>
                   You will have many new ideas to make writing easier. Not only that, you can also see your own mistakes to
